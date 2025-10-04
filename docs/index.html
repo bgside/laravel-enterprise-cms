@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Enterprise CMS - Live Demo</title>
+    <meta name="description" content="Enterprise Content Management System with Arabic/English bilingual support - Live Demo">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glass { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        .rtl { direction: rtl; }
+        .animate-fade-in { animation: fadeIn 0.6s ease-in-out; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-btn {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <i class="fas fa-edit text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-xl font-bold">Laravel Enterprise CMS</h1>
+                        <p class="text-purple-100 text-sm">Enterprise Content Management</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleLanguage()" class="glass text-white px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-language mr-2"></i>
+                        <span id="lang-text">العربية</span>
+                    </button>
+                    <a href="https://github.com/bgside/laravel-enterprise-cms" target="_blank" class="glass text-white px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fab fa-github mr-2"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center animate-fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6" id="hero-title">
+                Enterprise CMS Demo
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto" id="hero-subtitle">
+                Modern Laravel 11 Content Management System with full Arabic/English bilingual support, 
+                government-grade security, and professional admin dashboard
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button onclick="openDemo('admin')" class="demo-btn text-white px-8 py-4 rounded-xl font-semibold text-lg">
+                    <i class="fas fa-user-shield mr-3"></i>
+                    Admin Dashboard Demo
+                </button>
+                <button onclick="openDemo('frontend')" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all">
+                    <i class="fas fa-globe mr-3"></i>
+                    Frontend Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6" id="features-title">
+                    Enterprise Features
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" id="features-subtitle">
+                    Built for government agencies and enterprise organizations with Arabic/English support
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
+                <!-- Feature Cards -->
+                <div class="feature-card bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl border border-blue-200">
+                    <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-language text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Bilingual Support</h3>
+                    <p class="text-gray-600">Full Arabic/English support with RTL layouts, Unicode handling, and localized content management</p>
+                </div>
+
+                <div class="feature-card bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl border border-green-200">
+                    <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Enterprise Security</h3>
+                    <p class="text-gray-600">Government-grade security with JWT authentication, RBAC, audit logging, and compliance reporting</p>
+                </div>
+
+                <div class="feature-card bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl border border-purple-200">
+                    <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users-cog text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">User Management</h3>
+                    <p class="text-gray-600">Advanced role-based permissions, multi-factor authentication, and comprehensive user profiles</p>
+                </div>
+
+                <div class="feature-card bg-gradient-to-br from-orange-50 to-red-100 p-8 rounded-xl border border-orange-200">
+                    <div class="w-16 h-16 bg-orange-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-edit text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Rich Content Editor</h3>
+                    <p class="text-gray-600">Advanced WYSIWYG editor with Arabic support, media management, and version control</p>
+                </div>
+
+                <div class="feature-card bg-gradient-to-br from-teal-50 to-cyan-100 p-8 rounded-xl border border-teal-200">
+                    <div class="w-16 h-16 bg-teal-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Analytics Dashboard</h3>
+                    <p class="text-gray-600">Real-time analytics, performance metrics, user behavior tracking, and custom reporting</p>
+                </div>
+
+                <div class="feature-card bg-gradient-to-br from-pink-50 to-rose-100 p-8 rounded-xl border border-pink-200">
+                    <div class="w-16 h-16 bg-pink-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Mobile Responsive</h3>
+                    <p class="text-gray-600">Fully responsive design with mobile-first approach, PWA support, and offline capabilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Technology Stack</h2>
+                <p class="text-xl text-gray-600">Built with modern technologies for performance and scalability</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fab fa-laravel text-red-500 text-4xl mb-4"></i>
+                    <h3 class="font-bold text-lg">Laravel 11</h3>
+                    <p class="text-gray-600">Modern PHP Framework</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fab fa-vuejs text-green-500 text-4xl mb-4"></i>
+                    <h3 class="font-bold text-lg">Vue.js 3</h3>
+                    <p class="text-gray-600">Reactive Frontend</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fas fa-database text-blue-500 text-4xl mb-4"></i>
+                    <h3 class="font-bold text-lg">MySQL</h3>
+                    <p class="text-gray-600">Reliable Database</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <i class="fab fa-docker text-blue-600 text-4xl mb-4"></i>
+                    <h3 class="font-bold text-lg">XAMPP</h3>
+                    <p class="text-gray-600">Development Stack</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl max-w-md w-full mx-4 p-8 animate-slide-up">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-rocket text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Demo Information</h3>
+                <p class="text-gray-600 mb-6" id="demo-message">
+                    This is a showcase of the Laravel Enterprise CMS. The full application requires a PHP/Laravel environment to run.
+                </p>
+                <div class="flex gap-4">
+                    <button onclick="window.open('https://github.com/bgside/laravel-enterprise-cms', '_blank')" class="demo-btn text-white px-6 py-3 rounded-lg flex-1">
+                        <i class="fab fa-github mr-2"></i>
+                        View Source Code
+                    </button>
+                    <button onclick="closeModal()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg flex-1">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">Laravel Enterprise CMS</h3>
+                <p class="text-purple-100 mb-6">Built with ❤️ for government agencies and enterprise organizations</p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://github.com/bgside/laravel-enterprise-cms" target="_blank" class="glass p-3 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="glass p-3 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="#" class="glass p-3 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-purple-300 pt-8">
+                <p class="text-purple-100">
+                    © 2024 Ali Emad SALEH. Professional Laravel Enterprise CMS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isArabic = false;
+
+        const translations = {
+            en: {
+                'hero-title': 'Enterprise CMS Demo',
+                'hero-subtitle': 'Modern Laravel 11 Content Management System with full Arabic/English bilingual support, government-grade security, and professional admin dashboard',
+                'features-title': 'Enterprise Features',
+                'features-subtitle': 'Built for government agencies and enterprise organizations with Arabic/English support',
+                'demo-message': 'This is a showcase of the Laravel Enterprise CMS. The full application requires a PHP/Laravel environment to run.',
+                'lang-text': 'العربية'
+            },
+            ar: {
+                'hero-title': 'عرض توضيحي لنظام إدارة المحتوى المؤسسي',
+                'hero-subtitle': 'نظام إدارة محتوى حديث مبني على Laravel 11 مع دعم كامل للغتين العربية والإنجليزية، وأمان على مستوى حكومي، ولوحة تحكم احترافية',
+                'features-title': 'الميزات المؤسسية',
+                'features-subtitle': 'مصمم للوكالات الحكومية والمؤسسات مع دعم اللغتين العربية والإنجليزية',
+                'demo-message': 'هذا عرض توضيحي لنظام إدارة المحتوى المؤسسي Laravel. التطبيق الكامل يتطلب بيئة PHP/Laravel للتشغيل.',
+                'lang-text': 'English'
+            }
+        };
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const lang = isArabic ? 'ar' : 'en';
+            document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function openDemo(type) {
+            const modal = document.getElementById('demoModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
